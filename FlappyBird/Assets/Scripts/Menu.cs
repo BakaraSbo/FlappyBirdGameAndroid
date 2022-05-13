@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class for all the button interactions
 public class Menu : MonoBehaviour
 {
     public SpawningTubes spawning;
@@ -12,6 +13,7 @@ public class Menu : MonoBehaviour
     public GameObject title;
     public GameObject newHighScoreText;
     GameObject[] tubesInGame;
+    //Function for using Start Game button
     public void StartGame()
     {
         spawning.game = true;
@@ -21,7 +23,9 @@ public class Menu : MonoBehaviour
         title.SetActive(false);
         gameUI.GetComponentInChildren<Score>().score = 0;
         gameUI.GetComponentInChildren<Score>().bombs = 1;
+        gameUI.GetComponentInChildren<Score>().newBomb = 0;
     }
+    //Function for using Play Again button
     public void PlayAgain()
     {
         startButton.SetActive(true);

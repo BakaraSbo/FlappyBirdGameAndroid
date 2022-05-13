@@ -1,6 +1,7 @@
 using System.IO;
 using System.Xml.Serialization;
 
+//Class for functiont that help in other scripts.
 public static class HelpingFunctions
 {
     public static string Serialize<T>(this T toSerialize)

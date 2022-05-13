@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+//Class for holding information and updating text for score and bombs ammount.
 public class Score : MonoBehaviour
 {
 
     public int score=0;
     public int bombs = 1;
-    int newBomb=0;
+    public int newBomb=0;
     public Text scoreText;
     public Text bombsText;
-    // Update is called once per frame
+    //In update we change text of score and bomb amount to be correct with our data.
     void Update()
     {
         scoreText.text = score.ToString();
@@ -24,6 +26,7 @@ public class Score : MonoBehaviour
             }
         }
     }
+    //Function to add score outside of the class.
     public void AddScore()
     {
         score++;

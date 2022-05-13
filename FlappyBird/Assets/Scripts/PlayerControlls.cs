@@ -10,7 +10,7 @@ public class PlayerControlls : MonoBehaviour
     public GameObject bomb;
     public GameObject endGame;
     public GameObject gameUI;
-    public Score score;
+    public Score scoreTextUI;
     public HighScores highScores;
     public Text yourScoreText;
     public Text highScoreText;
@@ -21,11 +21,13 @@ public class PlayerControlls : MonoBehaviour
 
     void Update()
     {
+        //Checking if game is in progress and if it is using contrilling() for player controll.
         if (TubeSpawner.game)
         {
             Controlling();
         }
     }
+    //On collision ending game and switching UI from ingame to post game and saving the high scores and preparing player object for the next game.
     private void OnCollisionEnter2D(Collision2D collision)
     {
         TubeSpawner.game = false;
@@ -36,15 +38,16 @@ public class PlayerControlls : MonoBehaviour
         this.transform.position = Vector2.zero;
         this.gameObject.SetActive(false);
     }
-
+    //Function for checking where on local scoreboard our score is placing.
     private void CheckingForHighScore()
     {
-        if (highScores.scores[4] < score.score)
+        if (highScores.scores[4] < scoreTextUI.score)
         {
+            //Activating text showing that you got new top 5 score.
             newHighScoreText.SetActive(true);
             for (int i = 3; i >= 0; i--)
             {
-                if (highScores.scores[i] < score.score)
+                if (highScores.scores[i] < scoreTextUI.score)
                 {
                     if (i > 0)
                     {
@@ -53,21 +56,23 @@ public class PlayerControlls : MonoBehaviour
                     else
                     {
                         highScores.scores[i + 1] = highScores.scores[i];
-                        highScores.scores[i] = score.score;
+                        highScores.scores[i] = scoreTextUI.score;
                     }
                 }
                 else
                 {
-                    highScores.scores[i + 1] = score.score;
+                    highScores.scores[i + 1] = scoreTextUI.score;
                     break;
                 }
             }
         }
+        //Saving the high scores after every game.
         saveManager.Save();
     }
+    //Changing the end game text to be accurate with last game.
     private void ChangingTextOfEndGameScreen()
     {
-        yourScoreText.text = "Your Score \n" + score.score.ToString();
+        yourScoreText.text = "Your Score \n" + scoreTextUI.score.ToString();
         highScoreText.text = "Highest Scores \n";
         for (int i = 0; i < 5; i++)
         {
@@ -75,6 +80,7 @@ public class PlayerControlls : MonoBehaviour
             highScoreText.text += scoreNumber.ToString() + ". " + highScores.scores[i].ToString() + "\n";
         }
     }
+    //Function for controlling player character.
     private void Controlling()
     {
         if (Input.touchCount > 0)
@@ -82,12 +88,13 @@ public class PlayerControlls : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                if (Time.time - lastClickTime < 0.2f && score.bombs>0)
+                //Checking for the double click to use bomb.
+                if (Time.time - lastClickTime < 0.23f && scoreTextUI.bombs>0)
                 {
                     bomb.SetActive(true);
                     bombActiveTime = 1;
                     lastClickTime = Time.time;
-                    score.bombs -= 1;
+                    scoreTextUI.bombs -= 1;
                 }
                 else
                 {
@@ -96,6 +103,7 @@ public class PlayerControlls : MonoBehaviour
                 }
             }
         }
+        //Limiting bomb active time.
         if (bombActiveTime > 0)
         {
             bombActiveTime -= Time.deltaTime;
