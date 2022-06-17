@@ -163,6 +163,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 416022049}
     - target: {fileID: 5584698052077814281, guid: e7dccd56e57cd4847b001067f375655e, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 330581489}
+    - target: {fileID: 5584698052077814281, guid: e7dccd56e57cd4847b001067f375655e, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 330581490}
+    - target: {fileID: 5584698052077814281, guid: e7dccd56e57cd4847b001067f375655e, type: 3}
       propertyPath: highScoreText
       value: 
       objectReference: {fileID: 392952457}
@@ -402,6 +410,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &330581489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 330581491}
+  - component: {fileID: 330581490}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &330581490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330581489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa3cfce24845af4787d676c8062c450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 4682cec0723f4fc4884cbc5e5d84972a, type: 3}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    source: {fileID: 0}
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: 7675b120dfa1a0842a3b6497e92a36be, type: 3}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: PointScored
+    clip: {fileID: 8300000, guid: defdc5e3da005a144827f23e110d0fc5, type: 3}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &330581491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330581489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &351352589
 PrefabInstance:

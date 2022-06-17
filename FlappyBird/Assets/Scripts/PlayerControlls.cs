@@ -100,6 +100,7 @@ public class PlayerControlls : MonoBehaviour
                 {
                     rb.velocity = new Vector2(0, 3.0f);
                     lastClickTime = Time.time;
+                    FindObjectOfType<AudioManager>().Play("PlayerJump");
                 }
             }
         }

@@ -33,6 +33,7 @@ public class TubesMoving : MonoBehaviour
         {
             Score score = scoreText.GetComponent<Score>();
             score.AddScore();
+            FindObjectOfType<AudioManager>().Play("PointScored");
             passed = false;
         }
     }
