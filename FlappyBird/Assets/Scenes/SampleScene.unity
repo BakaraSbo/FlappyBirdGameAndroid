@@ -443,19 +443,19 @@ MonoBehaviour:
   sounds:
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 4682cec0723f4fc4884cbc5e5d84972a, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 0.1
     loop: 1
     source: {fileID: 0}
   - name: PlayerJump
-    clip: {fileID: 8300000, guid: 7675b120dfa1a0842a3b6497e92a36be, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 27f872823aaf1ec409d97c40fb51fc13, type: 3}
+    volume: 0.5
     pitch: 0.1
     loop: 0
     source: {fileID: 0}
   - name: PointScored
-    clip: {fileID: 8300000, guid: defdc5e3da005a144827f23e110d0fc5, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 2c089daffd403df409afb2b90b6340df, type: 3}
+    volume: 0.5
     pitch: 0.1
     loop: 0
     source: {fileID: 0}
